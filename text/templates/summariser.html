@@ -1,0 +1,19 @@
+<h1>Summary Page</h1>
+
+<div>
+  <div>
+    <form method="post" action="{% url 'summarise_text' %}">
+      {% csrf_token %}
+      <div>
+        {{form.inptext}}
+      </div>
+      <div>
+        {{form.count}}
+        <input type="submit" value="submit">
+      <div>
+    </form>
+  </div>
+  <div>
+    <textarea>{{output}}</textarea>
+  </div>
+</div>
