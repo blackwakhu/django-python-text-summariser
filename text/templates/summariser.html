@@ -5,30 +5,40 @@
 {% block content %}
 <h1>Summary Page</h1>
 
+
 <div>
   <div>
-    <form method="post" action="{% url 'summarise_text' %}">
-      {% csrf_token %}
-      <div>
-        {{form.inptext}}
-      </div>
-      <div>
-        {{form.count}}
-        <input type="submit" value="submit">
-      </div>
-    </form>
+    <button onclick="textDisplay('textdiv','urldiv')">Text</button> 
+    <button onclick="textDisplay('urldiv','textdiv')" >Url</button>
   </div>
-  <div>
-    <form method="post" action="{% url 'summarise_url' %}">
-      {% csrf_token %}
-      <div>
-        {{form.inptext}}
-      </div>
-      <div>
-        {{form.count}}
-        <input type="submit" value="submit">
-      </div>
-    </form>
+  <div id="textdiv">
+    <fieldset>
+      <legend>The Text input</legend>
+      <form method="post" action="{% url 'summarise_text' %}">
+        {% csrf_token %}
+        <div>
+          {{form.inptext}}
+        </div>
+        <div>
+          {{form.count}}
+          <input type="submit" value="submit">
+        </div>
+      </form>
+  </div>
+  <div id="urldiv" >
+    <fieldset>
+      <legend>The Url Input</legend>
+      <form method="post" action="{% url 'summarise_url' %}">
+        {% csrf_token %}
+        <div>
+          {{form.inptext}}
+        </div>
+        <div>
+          {{form.count}}
+          <input type="submit" value="submit">
+        </div>
+      </form>
+    </fieldset>
   </div>
   <div>
     <textarea>{{output}}</textarea>
