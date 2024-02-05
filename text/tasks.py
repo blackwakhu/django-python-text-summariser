@@ -21,7 +21,7 @@ def summarize(text, language="english", sentences_count=5):
   return ' '.join(str(sentence) for sentence in summary)
 
 
-def summary_url(url, language, count):
+def summary_url(url, language="english", count=5):
   parser = HtmlParser.from_url(url, Tokenizer(language))
   summarizer = LsaSummarizer(Stemmer(language))
   summary = summarizer(parser.document, count)
